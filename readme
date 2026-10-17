@@ -1,0 +1,30 @@
+# TCG Tabletop — Drawdy extension
+
+Turns a Drawdy board into a two-player trading card game tabletop with private hands and decks.
+
+Install the extension, open the board on two devices, click the cards icon at the right edge (click it again to hide the panel, and again to bring it back), take a Side, import a `.ddc` card file in the Library, pick a Deck and press Draw.
+
+## How to use
+
+1. **Library tab**: import `.ddc` Card Files (format: `docs/ddc-format.md`). Cards, Tokens and Custom Cards (e.g. life cards) arrive with their images. A file that lists copies also gives you a Deck named after it. You can search the Library, remove cards, and export it as a `.ddc` to share. The Library stays on your device.
+2. **Creator tab**: make your own cards from image files, URLs, or a typed name for a text card. Rename them, set Starter copies for a ready-made Deck, then Add to my Library or Export a `.ddc` to share.
+3. **Decks tab**: create, rename and delete Decks. Pick cards from the Library with the amount steppers, or work with text: the Deck list text exports and imports a Deck as lines like `4x Card Name` (format: `docs/decks.md`). Use chooses the Deck to play.
+4. **Table tab**: take Side 1 or Side 2. You always play at the bottom of your view; the opponent's Side is a read-only mirror above, rotated 180°. Choose your Deck here too.
+5. Your chosen Deck loads and shuffles automatically when the Match starts. Draw, Shuffle, Mulligan, Search, Peek top N (private, the opponent sees that you peeked) and Reveal top N (public) are in the panel and under right-click, TCG Tabletop.
+6. Cards in your Hand are private. Play them to the table, then right-click a selected card: flip (Drawdy-logo card back), tap, peek at a face-down card, discard, return to Hand, push to top/bottom of the Deck.
+7. Drag a card onto the Discard zone to discard it, or onto the Deck zone to choose top or bottom.
+8. Right-click, TCG Tabletop, Add Token / Add Custom Card places one at the cursor.
+9. **Show my Hand** (checkbox) shows your Hand face-up to the opponent. Only you can toggle it.
+10. **Restart Match**: one Player asks, the other accepts, both Sides reset. A new device cannot resume a Match, it must Restart.
+
+## Limits
+
+- Privacy is enforced by never writing private state (Hand, Deck order, Library) to the shared board. It holds against the UI, not against a Player reading raw board data of a modified client.
+- v1 has no counters, dice, Hand shuffle or playmat upload.
+- The panel may not be able to save an exported `.ddc` directly. It then offers Copy: paste the text into a file named `something.ddc`. A saved `.ddc` is gzip-compressed, about a quarter smaller. The Copy text is plain JSON and larger. Both import.
+
+Design notes: `CONTEXT.md` (glossary) and `docs/adr/`.
+
+## Develop
+
+`npm run dev` serves hot reload (add `http://localhost:5173` via Ctrl+K, Add extension dev server, on a local board). `npm run build` packs `dist/*.drawdyx`. `npm test` runs the logic check and a two-Player simulation against a fake host.

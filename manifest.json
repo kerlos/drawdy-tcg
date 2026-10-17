@@ -1,0 +1,8 @@
+{
+    "driverId": "kerlo.drawdy-tcg",
+    "driverName": "TCG Tabletop",
+    "driverVersion": "0.2.0",
+    "description": "Two-player trading card game tabletop with private hands, decks, tokens and a mirrored opponent side.",
+    "main": "main.js",
+    "permissions": ["dom", "scene", "storage", "collaboration"]
+}

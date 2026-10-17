@@ -1,0 +1,24 @@
+{
+    "name": "drawdy-tcg",
+    "version": "0.1.0",
+    "description": "Two-player trading card game tabletop for Drawdy.",
+    "license": "UNLICENSED",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "node --experimental-strip-types build.ts",
+        "typecheck": "tsc --noEmit",
+        "test": "node --experimental-strip-types src/state.test.ts && node --experimental-strip-types src/ddc.test.ts && node --experimental-strip-types src/deck.test.ts && node --experimental-strip-types src/panel.test.ts && npm run build && node test/driver.test.mjs"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "typescript": "^5",
+        "vite": "^8.2.1",
+        "@drawdy/driver-protocol": "latest",
+        "@rollup/plugin-typescript": "^12.1.2",
+        "fflate": "^0.8.2",
+        "rollup": "^4.34.0",
+        "tslib": "^2.8.1"
+    }
+}
